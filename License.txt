@@ -1,1 +1,1 @@
-You can take help from the functions I have written which may not be available in standard open source python libraries.
+You can take help from the functions I have written which may not be available in standard open source python libraries. But use full libraries with caution as things might break. Improvements underway.
