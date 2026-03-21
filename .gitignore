@@ -4,5 +4,8 @@ dist/
 Functions.egg-info/
 parameters/
 
+__pyche__/
+*.pyc
+
 *.fits
 Functions/mails.py
