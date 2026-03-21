@@ -1,0 +1,8 @@
+build/
+data/
+dist/
+Functions.egg-info/
+parameters/
+
+*.fits
+Functions/mails.py
