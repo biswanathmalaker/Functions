@@ -2,22 +2,23 @@ import requests
 from tqdm import tqdm
 import os
 
-def download_from_url(url,file_path):
-    import requests
-    import os
+def download_from_url(url, file_path):
     try:
-        if not os.path.isfile(file_path):
-            r = requests.get(url,allow_redirects = True)
-            f = open(file=file_path,mode='wb')
-            f.write(r.content)
-            f.close()
-            return f'{file_path} downloaded'
-        else:
-            print(f"{file_path} exists!")
-    except Exception as error:
-        print(f"Error : {error} ---> {file_path}")
-        return error
+        if os.path.exists(file_path):
+            return True # Consider it a success if it already exists
 
+        with requests.get(url, stream=True, allow_redirects=True) as r:
+            r.raise_for_status()
+            with open(file_path, 'wb') as f:
+                for chunk in r.iter_content(chunk_size=1024 * 1024): # 1MB chunks
+                    if chunk:
+                        f.write(chunk)
+        return True
+    except Exception as error:
+        if os.path.exists(file_path):
+            os.remove(file_path)
+        print(f"\n error: {error} ---> {file_path}")
+        return False
 
 
 def get_all_urls(url):
