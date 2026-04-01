@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='Functions',
-    version='1.4.8',
+    version='1.4.9',
     description="Functions used for Phd",
     long_description="This is module which has functionalities extensively used during my Phd",
     author="Biswanath Malaker",
