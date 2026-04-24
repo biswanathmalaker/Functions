@@ -241,6 +241,13 @@ def VIS(original_cutout_path, prepped_cutout_path, original_full_path, prepped_f
     return fig
 
 
+def read_pointing_table(filepath):
+    from astropy.table import Table
+    tb = Table.read(filepath, format='csv')
+    return tb
+
+
+
 # --- 3. Execution & Visualization ---
 
 if __name__ == "__main__":
